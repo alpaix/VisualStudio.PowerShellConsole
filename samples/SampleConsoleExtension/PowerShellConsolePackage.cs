@@ -1,14 +1,7 @@
-﻿using System;
-using System.ComponentModel.Design;
-using System.Diagnostics;
+using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 using System.Runtime.InteropServices;
-using Microsoft.VisualStudio;
-using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
-using Microsoft.Win32;
 
 namespace Alpaix.SampleConsoleExtension
 {
@@ -32,7 +25,10 @@ namespace Alpaix.SampleConsoleExtension
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)] // Info on this package for Help/About
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    [ProvideToolWindow(typeof(PowerShellConsoleToolWindow))]
+    [ProvideToolWindow(typeof(PowerShellConsoleToolWindow),
+        Style = VsDockStyle.Tabbed,
+        Window = "{34E76E81-EE4A-11D0-AE2E-00A0C90FFFC3}", // this is the guid of the Output tool window, which is present in both VS and VWD
+        Orientation = ToolWindowOrientation.Right)]
     [Guid(PowerShellConsolePackage.PackageGuidString)]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
     public sealed class PowerShellConsolePackage : Package

@@ -50,10 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsyncPowerShellHost.cs" />
+    <Compile Include="ClassifierProvider.cs" />
     <Compile Include="CommandExpansion.cs" />
     <Compile Include="CommandTokenizer.cs" />
     <Compile Include="CommandTokenizerProvider.cs" />
     <Compile Include="CommonExtensionMethods.cs" />
+    <Compile Include="CompletionSourceProvider.cs" />
     <Compile Include="ComplexCommand.cs" />
     <Compile Include="ConsoleDispatcher.cs" />
     <Compile Include="DisplayNameAttribute.cs" />

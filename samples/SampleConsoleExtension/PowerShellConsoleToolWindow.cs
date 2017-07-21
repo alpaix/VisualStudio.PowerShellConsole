@@ -183,6 +183,60 @@ namespace Alpaix.SampleConsoleExtension
             return base.PreProcessMessage(ref m);
         }
 
+        /// <summary>
+        /// Override to forward to editor or handle accordingly if supported by this tool window.
+        /// </summary>
+        int IOleCommandTarget.QueryStatus(ref Guid pguidCmdGroup, uint cCmds, OLECMD[] prgCmds, IntPtr pCmdText)
+        {
+            var hr = OleCommandFilter.OLECMDERR_E_NOTSUPPORTED;
+
+            if (VsTextView != null)
+            {
+                var cmdTarget = (IOleCommandTarget)VsTextView;
+                hr = cmdTarget.QueryStatus(ref pguidCmdGroup, cCmds, prgCmds, pCmdText);
+            }
+
+            if (hr == OleCommandFilter.OLECMDERR_E_NOTSUPPORTED
+                ||
+                hr == OleCommandFilter.OLECMDERR_E_UNKNOWNGROUP)
+            {
+                var target = GetService(typeof(IOleCommandTarget)) as IOleCommandTarget;
+                if (target != null)
+                {
+                    hr = target.QueryStatus(ref pguidCmdGroup, cCmds, prgCmds, pCmdText);
+                }
+            }
+
+            return hr;
+        }
+
+        /// <summary>
+        /// Override to forward to editor or handle accordingly if supported by this tool window.
+        /// </summary>
+        int IOleCommandTarget.Exec(ref Guid pguidCmdGroup, uint nCmdID, uint nCmdexecopt, IntPtr pvaIn, IntPtr pvaOut)
+        {
+            var hr = OleCommandFilter.OLECMDERR_E_NOTSUPPORTED;
+
+            if (VsTextView != null)
+            {
+                var cmdTarget = (IOleCommandTarget)VsTextView;
+                hr = cmdTarget.Exec(ref pguidCmdGroup, nCmdID, nCmdexecopt, pvaIn, pvaOut);
+            }
+
+            if (hr == OleCommandFilter.OLECMDERR_E_NOTSUPPORTED
+                ||
+                hr == OleCommandFilter.OLECMDERR_E_UNKNOWNGROUP)
+            {
+                var target = GetService(typeof(IOleCommandTarget)) as IOleCommandTarget;
+                if (target != null)
+                {
+                    hr = target.Exec(ref pguidCmdGroup, nCmdID, nCmdexecopt, pvaIn, pvaOut);
+                }
+            }
+
+            return hr;
+        }
+
         private void LoadConsoleEditor()
         {
             if (WpfConsole != null)

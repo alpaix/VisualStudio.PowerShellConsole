@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TextManager.Interop;
 
 namespace Alpaix.VisualStudio.PowerShellConsole
 {
-    internal class OleCommandFilter : IOleCommandTarget
+    public class OleCommandFilter : IOleCommandTarget
     {
         public const int OLECMDERR_E_NOTSUPPORTED = (int)Constants.OLECMDERR_E_NOTSUPPORTED;
         public const int OLECMDERR_E_UNKNOWNGROUP = (int)Constants.OLECMDERR_E_UNKNOWNGROUP;
@@ -24,7 +24,7 @@ namespace Alpaix.VisualStudio.PowerShellConsole
             ErrorHandler.ThrowOnFailure(vsTextView.AddCommandFilter(this, out _oldChain));
             Debug.Assert(_oldChain != null);
 
-            this.OldChain = _oldChain;
+            OldChain = _oldChain;
         }
 
         protected virtual int InternalQueryStatus(ref Guid pguidCmdGroup, uint cCmds, OLECMD[] prgCmds, IntPtr pCmdText)
