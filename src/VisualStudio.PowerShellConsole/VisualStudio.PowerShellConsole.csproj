@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{329C19E9-AC8A-4ED1-96FA-938E18D734E4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Alpaix.VisualStudio.PowerShellConsole</RootNamespace>
+    <AssemblyName>Alpaix.VisualStudio.PowerShellConsole</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AsyncPowerShellHost.cs" />
+    <Compile Include="CommandExpansion.cs" />
+    <Compile Include="CommandTokenizer.cs" />
+    <Compile Include="CommandTokenizerProvider.cs" />
+    <Compile Include="CommonExtensionMethods.cs" />
+    <Compile Include="ComplexCommand.cs" />
+    <Compile Include="ConsoleDispatcher.cs" />
+    <Compile Include="DisplayNameAttribute.cs" />
+    <Compile Include="EnvironmentVariableWrapper.cs" />
+    <Compile Include="ExceptionLogger.cs" />
+    <Compile Include="ExceptionUtilities.cs" />
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="Guids.cs" />
+    <Compile Include="HostInfo.cs" />
+    <Compile Include="HostNameAttribute.cs" />
+    <Compile Include="HostUtilities.cs" />
+    <Compile Include="ICommandExpansion.cs" />
+    <Compile Include="ICommandExpansionProvider.cs" />
+    <Compile Include="ICommandTokenizer.cs" />
+    <Compile Include="ICommandTokenizerProvider.cs" />
+    <Compile Include="IConsoleDispatcher.cs" />
+    <Compile Include="IConsoleStatus.cs" />
+    <Compile Include="IEnvironmentVariableReader.cs" />
+    <Compile Include="IHost.cs" />
+    <Compile Include="IHostInitializer.cs" />
+    <Compile Include="IHostMetadata.cs" />
+    <Compile Include="IHostNameMetadata.cs" />
+    <Compile Include="IHostProvider.cs" />
+    <Compile Include="ILogger.cs" />
+    <Compile Include="ILogMessage.cs" />
+    <Compile Include="ILogMessageException.cs" />
+    <Compile Include="InputHistory.cs" />
+    <Compile Include="IPathExpansion.cs" />
+    <Compile Include="IPowerConsoleWindow.cs" />
+    <Compile Include="IPrivateConsoleStatus.cs" />
+    <Compile Include="IRunspaceManager.cs" />
+    <Compile Include="ITabExpansion.cs" />
+    <Compile Include="IWpfConsoleService.cs" />
+    <Compile Include="LogLevel.cs" />
+    <Compile Include="LogMessage.cs" />
+    <Compile Include="Marshaler.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="NuGetEventArgs.cs" />
+    <Compile Include="NuGetHostRawUserInterface.cs" />
+    <Compile Include="NuGetHostUserInterface.cs" />
+    <Compile Include="NuGetLogCode.cs" />
+    <Compile Include="NuGetPSHost.cs" />
+    <Compile Include="ObjectWithFactory.cs" />
+    <Compile Include="OleCommandFilter.cs" />
+    <Compile Include="OrderedSpans.cs" />
+    <Compile Include="PathUtility.cs" />
+    <Compile Include="PowerShellCommandExpansionProvider.cs" />
+    <Compile Include="PowerShellHost.cs" />
+    <Compile Include="PowerShellHostProvider.cs" />
+    <Compile Include="PowerShellHostService.cs" />
+    <Compile Include="RegistryHelper.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RunspaceDispatcher.cs" />
+    <Compile Include="RunspaceManager.cs" />
+    <Compile Include="SimpleExpansion.cs" />
+    <Compile Include="SyncPowerShellHost.cs" />
+    <Compile Include="TextFormatClassifier.cs" />
+    <Compile Include="Token.cs" />
+    <Compile Include="TokenType.cs" />
+    <Compile Include="UnsupportedHost.cs" />
+    <Compile Include="UtilityMethods.cs" />
+    <Compile Include="VsKeyInfo.cs" />
+    <Compile Include="WarningLevel.cs" />
+    <Compile Include="WpfConsole.cs" />
+    <Compile Include="WpfConsoleClassifier.cs" />
+    <Compile Include="WpfConsoleCompletionSource.cs" />
+    <Compile Include="WpfConsoleKeyProcessor.cs" />
+    <Compile Include="WpfConsoleService.cs" />
+    <Compile Include="Xamls\ConsoleContainer.xaml.cs">
+      <DependentUpon>ConsoleContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExceptionHelper.cs" />
+    <Compile Include="IConsole.cs" />
+    <Compile Include="IOutputConsole.cs" />
+    <Compile Include="IWpfConsole.cs" />
+    <Compile Include="PowerConsoleWindow.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EnvDTE">
+      <Version>8.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="EnvDTE80">
+      <Version>8.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.PowerShell.5.ReferenceAssemblies">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.ComponentModelHost">
+      <Version>15.0.26606</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Editor">
+      <Version>15.0.26606</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Language.Intellisense">
+      <Version>15.0.26606</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Language.StandardClassification">
+      <Version>15.0.26606</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Shell.15.0">
+      <Version>15.0.26606</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.TextManager.Interop.10.0">
+      <Version>10.0.30319</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Threading">
+      <Version>15.3.35</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers">
+      <Version>15.3.35</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Xamls\ConsoleContainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Key.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
